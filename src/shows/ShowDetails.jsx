@@ -5,10 +5,10 @@ import EpisodeList from "../episodes/EpisodeList";
 
 /** Allows users to browse through the episodes of the given show */
 export default function ShowDetails({ show }) {
-  const [selectedShow] = useState(show);
+  
   const [selectedEpisode, setSelectedEpisode] = useState();
   
-  if (!selectedShow) {
+  if (!show) {
     return (
       <div className="show-details">
         <p>Please select a show to learn more</p>
@@ -17,7 +17,7 @@ export default function ShowDetails({ show }) {
   }
   
   return <div className="show-details">
-    <EpisodeList name={selectedShow.name} episodes={selectedShow.episodes} selectedEpisode={selectedEpisode} setSelectedEpisode={setSelectedEpisode} />
-    <EpisodeDetails episode={selectedShow} />
+    <EpisodeList name={show.name} episodes={show.episodes} selectedEpisode={selectedEpisode} setSelectedEpisode={setSelectedEpisode} />
+    <EpisodeDetails episode={show} />
   </div>;
 }
